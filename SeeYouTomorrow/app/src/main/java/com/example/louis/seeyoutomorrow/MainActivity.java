@@ -141,13 +141,6 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
 //        }
 
 
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.set(Calendar.HOUR_OF_DAY, 22);
-//        calendar.set(Calendar.MINUTE, 48);
-//        calendar.set(Calendar.SECOND, 30);
-//        calendar.set(Calendar.MILLISECOND, 0);
-
-
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
@@ -161,12 +154,11 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
 
         myIntent = new Intent(MainActivity.this, AlarmNotificationReceiver.class);
         myIntent.putExtra("AUDIO_PATH", AudioSavePathInDevice);
+        myIntent.putExtra("SET_TIME", hour + " : " + minute);
         pendingIntent = PendingIntent.getBroadcast(this, 0, myIntent, 0);
 
-// setRepeating() lets you specify a precise custom interval--in this case,
-// 20 minutes.
-        manager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                pendingIntent);
+        manager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),pendingIntent);
+        //manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 500, pendingIntent);
 
     }
 

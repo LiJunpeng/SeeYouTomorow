@@ -19,14 +19,15 @@ public class AlarmNotificationReceiver extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 
         String audioPath = intent.getExtras().getString("AUDIO_PATH");
-        Log.e("======>", audioPath);
+        String setTime = intent.getExtras().getString("SET_TIME");
+        Log.e("======>", audioPath + "  " + setTime);
 
         builder.setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Alarm activated!")
-                .setContentText("THIS IS MY ALARM")
+                .setContentText("Message from: " + setTime)
                 .setDefaults(Notification.DEFAULT_LIGHTS )
 //                .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
                 .setContentInfo("Info");
