@@ -35,7 +35,7 @@
     <Button
         android:layout_below="@+id/rdiGroup"
         android:id="@+id/btnOneTime"
-        android:text="One-Time alarm"
+        android:text="Set"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Button.Colored" />
@@ -43,7 +43,7 @@
     <Button
         android:layout_below="@+id/btnOneTime"
         android:id="@+id/btnRepeating"
-        android:text="Repeating alarm"
+        android:text="Play"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Button.Colored" />
