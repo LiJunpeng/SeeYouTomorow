@@ -148,11 +148,16 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
 //        calendar.set(Calendar.MILLISECOND, 0);
 
 
-        
-
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
+        calendar.set(Calendar.SECOND, 0);
+
+        Calendar sysCalendar = Calendar.getInstance();
+
+        if(sysCalendar.getTimeInMillis()> calendar.getTimeInMillis()) {
+            calendar.set(Calendar.DAY_OF_YEAR, sysCalendar.get(Calendar.DAY_OF_YEAR) + 1);
+        }
 
         myIntent = new Intent(MainActivity.this, AlarmNotificationReceiver.class);
         myIntent.putExtra("AUDIO_PATH", AudioSavePathInDevice);
