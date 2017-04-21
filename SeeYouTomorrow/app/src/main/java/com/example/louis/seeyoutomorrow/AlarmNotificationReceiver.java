@@ -20,6 +20,7 @@ public class AlarmNotificationReceiver extends BroadcastReceiver {
 
         String audioPath = intent.getExtras().getString("AUDIO_PATH");
         String setTime = intent.getExtras().getString("SET_TIME");
+        String toTime = intent.getExtras().getString("TO_TIME");
         Log.e("======>", audioPath + "  " + setTime);
 
         builder.setAutoCancel(true)
@@ -27,7 +28,7 @@ public class AlarmNotificationReceiver extends BroadcastReceiver {
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Alarm activated!")
-                .setContentText("Message from: " + setTime)
+                .setContentText("Message from: " + setTime + " to: " + toTime)
                 .setDefaults(Notification.DEFAULT_LIGHTS )
 //                .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
                 .setContentInfo("Info");

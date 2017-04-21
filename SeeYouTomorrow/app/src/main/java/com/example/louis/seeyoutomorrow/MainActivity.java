@@ -154,7 +154,8 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
 
         myIntent = new Intent(MainActivity.this, AlarmNotificationReceiver.class);
         myIntent.putExtra("AUDIO_PATH", AudioSavePathInDevice);
-        myIntent.putExtra("SET_TIME", hour + " : " + minute);
+        myIntent.putExtra("SET_TIME", sysCalendar.HOUR_OF_DAY + " : " + sysCalendar.MINUTE);
+        myIntent.putExtra("TO_TIME", hour + " : " + minute);
         pendingIntent = PendingIntent.getBroadcast(this, 0, myIntent, 0);
 
         manager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),pendingIntent);
